@@ -1,15 +1,19 @@
 package com.vacasa.exercise.controller;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import com.vacasa.exercise.service.ExerciseService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
-@Controller("/v1/")
+@RestController
+@RequestMapping("/api/v1/")
 public class ExerciseController {
 
-    @GetMapping(params = "q")
-    public String handler(@RequestParam("q") String q){
-        return "holi";
+    @Autowired
+    private ExerciseService service;
+
+    @GetMapping("/exercise")
+    public String handler(@RequestParam  String q){
+        return service.handler(q);
     }
 
 }

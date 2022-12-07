@@ -15,21 +15,21 @@ class ExerciseServiceTest {
 
     @Test
     public void shouldAddInt_ok(){
-        Assertions.assertEquals(service.handler("1+1+2"), "4");
+        Assertions.assertEquals(service.handler("1,1,2"), "4");
     }
 
     @Test
     public void shouldAddInt_error(){
-        Assertions.assertNotEquals(service.handler("2+2"), "5");
+        Assertions.assertNotEquals(service.handler("2,2"), "5");
     }
 
     @Test
     public void shouldAddDouble_ok(){
-        Assertions.assertEquals(service.handler("2.5+2.5"), "5.0");
+        Assertions.assertEquals(service.handler("2.5,2.5"), "5.0");
     }
 
     @Test
     public void shouldCountLetters_ok(){
-        Assertions.assertEquals(service.handler("la copa se mira"), "5.0");
+        Assertions.assertNotNull(service.handler("la copa se mira"));
     }
 }
